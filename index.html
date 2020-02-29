@@ -12,7 +12,7 @@
       <h1>EATALIAN PIZZA</h1>
       <p>Tag line</p>
       <p>Make your order</p>
-      <form>
+      <form id="order">
         <div class="form-group">
           <label for="name">Enter your name:</label>
           <input type="text" class="form-control" id="name" required>
@@ -21,17 +21,17 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="size" id="small" >
+            <input class="form-check-input" type="radio" name="size" id="small" value="small" >
             <label class="form-check-label" for="small">Small</label>
           </div></div>
           <div class="col-md-4">
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="size" id="medium" >
+            <input class="form-check-input" type="radio" name="size" id="medium" value="medium" >
             <label class="form-check-label" for="medium">Medium</label>
           </div></div>
           <div class="col-md-4">
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="size" id="small" >
+            <input class="form-check-input" type="radio" name="size" id="large" value="large">
             <label class="form-check-label" for="large">Large</label>
           </div></div></div>
           <br><br>
@@ -110,7 +110,7 @@
 
           <br>
           <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
-          <button type="submit" class="btn btn-outline-success"name="checkkout">Proceed to Checkout</button>
+          <button type="submit" class="btn btn-outline-success">Proceed to Checkout</button>
 
 
       </form>
