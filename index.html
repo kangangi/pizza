@@ -87,17 +87,27 @@
           </select>
           <br>
           <p>Select your choice of extra toppings</p>
-          <select class="form-control" id="toppings">
-            <option value="0">No extra toppings</option>
-            <option value="1">Bacon</option>
-            <option value="2">Peporoni</option>
-            <option value="3">Cheese</option>
-            <option value="4">Onions</option>
-            <option value="5">Pineapples</option>
-            <option value="7">Chicken</option>
-            <option value="8">Beef</option>
-            <option value="9">Olives</option>
-          </select>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="toppings" id="no-toppings" >
+            <label class="form-check-label" for="no-toppings">No extra toppings</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="toppings" id="bacon" >
+            <label class="form-check-label" for="bacon">Bacon</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="toppings" id="peporoni" >
+            <label class="form-check-label" for="peporoni">Peporoni</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="toppings" id="cheese" >
+            <label class="form-check-label" for="cheese">Cheese</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="toppings" id="onions" >
+            <label class="form-check-label" for="onions">Onions</label>
+          </div>
+
           <br>
           <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
           <button type="submit" class="btn btn-outline-success"name="checkkout">Proceed to Checkout</button>
