@@ -4,8 +4,8 @@ function Order(name, size, type){
   this.type = [];
 }
 
-function PizzaType(pizzaFlavour, crust, toppings){
-  this.pizzaFlavour = pizzaFlavour;
+function PizzaType(pizzaFlavor, crust, toppings){
+  this.pizzaFlavor = pizzaFlavour;
   this.crust = crust;
   this.toppings = toppings;
 }
@@ -24,6 +24,20 @@ $(document).ready(function(){
     }else{
       var sizeCost = 1000;
     }
-    alert(sizeCost);
+
+    var inputtedFlavor =$("input:radio[name=pizza]:checked").val();
+    var inputtedCrust =$("#crust").val();
+
+    if (inputtedCrust ==="0"){
+      var crustCost = 0;
+    } else if(inputtedCrust === "1"){
+      var crustCost = 100;
+    }else if (inputtedCrust === "2"){
+      var crustCost = 200;
+    }else {
+      var crustCost = 150;
+    }
+    alert(crustCost)
+
   });
 });
