@@ -39,5 +39,17 @@ $(document).ready(function(){
     }
     alert(crustCost)
 
+    if (document.getElementById("bacon").checked){
+      var bacon = 100;
+    } else if (document.getElementById("peporoni").checked){
+      var peporoni = 120;
+    } else if (document.getElementById("cheese").checked){
+      var cheese = 80;
+    } else if (document.getElementById("onions").checked){
+      var onions = 50;
+    } else {
+      var topping = 0;
+    }
+
   });
 });
