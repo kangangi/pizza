@@ -15,7 +15,7 @@
       <form id="order">
         <div class="form-group">
           <label for="name">Enter your name:</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" class="form-control" id="name">
         </div>
         <p>Select a size:</p>
         <div class="row">
@@ -88,10 +88,6 @@
           <br>
           <p>Select your choice of extra toppings</p>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="toppings" id="no-toppings" >
-            <label class="form-check-label" for="no-toppings">No extra toppings</label>
-          </div>
-          <div class="form-check">
             <input class="form-check-input" type="checkbox" name="toppings" id="bacon" >
             <label class="form-check-label" for="bacon">Bacon</label>
           </div>
@@ -111,7 +107,13 @@
           <br>
           <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
           <button type="submit" class="btn btn-outline-success">Proceed to Checkout</button>
-
+          <br><br>
+          <div id="show-order">
+            <h2></h2>
+            <p>Pizza size: <span class="pizza-size"></span></p>
+            <p>Pizza crust: <span class="pizza-crust"></span></p>
+            <p>Total cost :<span class="pizza-total"></span></p>
+          </div>
 
       </form>
     </div>
