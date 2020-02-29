@@ -5,9 +5,105 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Eatalian pizza</title>
+    <title>Eatalian Pizza</title>
   </head>
   <body>
+    <div class="container">
+      <h1>EATALIAN PIZZA</h1>
+      <p>Tag line</p>
+      <p>Make your order</p>
+      <form>
+        <div class="form-group">
+          <label for="name">Enter your name:</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <p>Select a size:</p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="size" id="small" >
+            <label class="form-check-label" for="small">Small</label>
+          </div></div>
+          <div class="col-md-4">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="size" id="medium" >
+            <label class="form-check-label" for="medium">Medium</label>
+          </div></div>
+          <div class="col-md-4">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="size" id="small" >
+            <label class="form-check-label" for="large">Large</label>
+          </div></div></div>
+          <br><br>
 
+          <p>Select type of pizza</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="margherita" >
+            <label class="form-check-label" for="margherita">Margherita</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="bbqchicken" >
+            <label class="form-check-label" for="bbqchicken">Barbecue Chicken</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="bbqbeef" >
+            <label class="form-check-label" for="bbqbeef">Barbecue Beef</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pizza" id="marinara" >
+            <label class="form-check-label" for="marinara">Marinara</label>
+          </div>
+          <br>
+          <p>Select type of crust</p>
+          <select class="form-control" id="crust">
+            <option value="0">Thin Crust</option>
+            <option value="1">Thick Crust</option>
+            <option value="2">Glutten Free</option>
+            <option value="3">Cheese Stuffing</option>
+          </select>
+          <br>
+          <p>Select your choice of extra toppings</p>
+          <select class="form-control" id="toppings">
+            <option value="0">No extra toppings</option>
+            <option value="1">Bacon</option>
+            <option value="2">Peporoni</option>
+            <option value="3">Cheese</option>
+            <option value="4">Onions</option>
+            <option value="5">Pineapples</option>
+            <option value="7">Chicken</option>
+            <option value="8">Beef</option>
+            <option value="9">Olives</option>
+          </select>
+          <br>
+          <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
+          <button type="submit" class="btn btn-outline-success"name="checkkout">Proceed to Checkout</button>
+
+
+      </form>
+    </div>
   </body>
 </html>
