@@ -3,6 +3,7 @@
 }
 body{
   text-align: center;
+  background-color: #FFA500;
 }
 
 #header h1{
@@ -11,6 +12,7 @@ body{
 }
 #header p{
   font-size:25px;
+  font-family: 'Permanent Marker';
 }
 
 #order{
@@ -19,4 +21,8 @@ body{
 }
 #order p{
   font-weight: bold;
+  color: gray;
+}
+.btn{
+  font-size: 30px;
 }

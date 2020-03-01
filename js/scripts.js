@@ -8,7 +8,7 @@ function PizzaType(pizzaFlavor, size, crust){
   this.size = size;
   this.pizzaFlavor = pizzaFlavour;
   this.crust = crust;
-  //this.toppings = toppings;
+  this.toppings = toppings;
 }
 
 $(document).ready(function(){
@@ -40,7 +40,6 @@ $(document).ready(function(){
         '<div class="form-check">'+'<input class="form-check-input" type="checkbox" name="toppings" id="onions" >'+'<label class="form-check-label" for="onions">Onions</label>'+'</div>'+'</div>'
       )
       });
-  });
   $("form#order").submit(function(event){
     event.preventDefault();
 
@@ -56,7 +55,7 @@ $(document).ready(function(){
       var sizeCost = 750;
     }else{
       var sizeCost = 1000;
-    }
+    };
 
     if (inputtedCrust ==="0"){
       var crustCost = 0;
@@ -66,26 +65,19 @@ $(document).ready(function(){
       var crustCost = 200;
     }else {
       var crustCost = 150;
-    }
-    var total =  sizeCost + crustCost
-    //var newOrder = new Order(inputtedName,total);
-    //var newType = new PizzaType(inputtedSize, inputtedFlavor, inputtedCrust)
-    $("#show-order").show();
-    $("#show-order h2").text("Your order is:");
-    $(".pizza-size").text(inputtedSize);
-    $("pizza-crust").text(inputtedCrust);
-    $(".pizza-total").text(total);
-    /*if (document.getElementById("bacon").checked){
-      var bacon = 1;
+    };
+
+    if (document.getElementById("bacon").checked){
+      var bacon = true;
     }
      if (document.getElementById("peporoni").checked){
-      var peporoni = 2;
+      var peporoni = true;
     }
     if (document.getElementById("cheese").checked){
-      var cheese = 3;
+      var cheese = true;
     }
     if (document.getElementById("onions").checked){
-      var onions = 4;
+      var onions = true;
     }
 
 
@@ -143,5 +135,11 @@ $(document).ready(function(){
           var onionCost = 50;
         break;
       };
-    };*/
+    };
+    var total =  sizeCost + crustCost + parseInt(baconCost)+ parseInt(peporoniCost)+parseInt(cheeseCost)+parseInt(onionCost);
+    alert(total);
+
+
+
+});
 });
