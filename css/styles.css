@@ -1,3 +1,22 @@
 #show-order{
   display: none;
 }
+body{
+  text-align: center;
+}
+
+#header h1{
+  font-family: 'Permanent Marker';
+  font-size: 80px;
+}
+#header p{
+  font-size:25px;
+}
+
+#order{
+  font-size: 30px;
+  font-family: 'Dosis';
+}
+#order p{
+  font-weight: bold;
+}
