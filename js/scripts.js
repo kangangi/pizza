@@ -44,27 +44,32 @@ $(document).ready(function(){
     event.preventDefault();
 
     var inputtedName = $("input#name").val();
-    var inputtedSize = $("input:radio[name=size]:checked").val();
-    var inputtedFlavor =$("input:radio[name=pizza]:checked").val();
+    var inputtedSize = $("input[name=size]:checked").val();
+    var inputtedFlavor =$("input[name=pizza]:checked").val();
     var inputtedCrust =$("#crust").val();
+
+    var sizeCost;
+    var crustCost;
+    var toppingCost = 0;
+
 
 
     if (inputtedSize ==="small"){
-      var sizeCost = 500;
+      sizeCost = 500;
     } else if(inputtedSize ==="medium"){
-      var sizeCost = 750;
+      sizeCost = 750;
     }else{
-      var sizeCost = 1000;
+       sizeCost = 1000;
     };
 
     if (inputtedCrust ==="0"){
-      var crustCost = 0;
+       crustCost = 0;
     } else if(inputtedCrust === "1"){
-      var crustCost = 100;
+      crustCost = 100;
     }else if (inputtedCrust === "2"){
-      var crustCost = 200;
+      crustCost = 200;
     }else {
-      var crustCost = 150;
+      crustCost = 150;
     };
 
     if (document.getElementById("bacon").checked){
@@ -80,8 +85,57 @@ $(document).ready(function(){
       var onions = true;
     }
 
-
     if (bacon === true){
+      if (inputtedSize === "small"){
+         toppingCost += 50;
+      }else if (inputtedSize === "medium"){
+         toppingCost += 100;
+      }else {
+         toppingCost += 150;
+      };
+    };
+    if (peporoni === true){
+      if (inputtedSize === "small"){
+         toppingCost += 60;
+      }else if (inputtedSize === "medium"){
+         toppingCost += 120;
+      }else {
+         toppingCost += 180;
+      };
+    };
+
+    if (cheese === true){
+      if (inputtedSize === "small"){
+        toppingCost+= 40;
+      }else if (inputtedSize === "medium"){
+        toppingCost += 80;
+      }else {
+         toppingCost += 120;
+      };
+    };
+
+    if (onions === true){
+      if (inputtedSize === "small"){
+         toppingCost += 30;
+      }else if (inputtedSize === "medium"){
+         toppingCost += 60;
+      }else {
+        toppingCost += 90;
+      };
+    };
+
+    var total =  sizeCost + crustCost + toppingCost;
+    alert(sizeCost);
+    alert(crustCost);
+    alert(toppingCost);
+    alert(total);
+  });
+});
+
+
+
+
+    /*if (bacon === true) {
       switch(inputtedSize){
         case "small":
           var baconCost = 30;
@@ -135,11 +189,4 @@ $(document).ready(function(){
           var onionCost = 50;
         break;
       };
-    };
-    var total =  sizeCost + crustCost + parseInt(baconCost)+ parseInt(peporoniCost)+parseInt(cheeseCost)+parseInt(onionCost);
-    alert(total);
-
-
-
-});
-});
+    };*/
