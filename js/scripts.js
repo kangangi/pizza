@@ -1,14 +1,16 @@
 function Order(name,type,total){
   this.name = name;
-  this.type = [];
+  //this.type = [];
   this.total = total;
 }
 
 function PizzaType(pizzaFlavor, size, crust){
   this.size = size;
+
   this.pizzaFlavor = pizzaFlavour;
   this.crust = crust;
   this.toppings = toppings;
+  this.delivery = delivery;
 }
 
 $(document).ready(function(){
@@ -47,31 +49,7 @@ $(document).ready(function(){
     var inputtedSize = $("input[name=size]:checked").val();
     var inputtedFlavor =$("input[name=pizza]:checked").val();
     var inputtedCrust =$("#crust").val();
-
-    var sizeCost;
-    var crustCost;
-    var toppingCost = 0;
-
-
-
-    if (inputtedSize ==="small"){
-      sizeCost = 500;
-    } else if(inputtedSize ==="medium"){
-      sizeCost = 750;
-    }else{
-       sizeCost = 1000;
-    };
-
-    if (inputtedCrust ==="0"){
-       crustCost = 0;
-    } else if(inputtedCrust === "1"){
-      crustCost = 100;
-    }else if (inputtedCrust === "2"){
-      crustCost = 200;
-    }else {
-      crustCost = 150;
-    };
-
+    var inputtedDelivery= $("#delivery").val();
     if (document.getElementById("bacon").checked){
       var bacon = true;
     }
@@ -84,7 +62,30 @@ $(document).ready(function(){
     if (document.getElementById("onions").checked){
       var onions = true;
     }
-
+    //costing
+    var sizeCost;
+    var crustCost;
+    var toppingCost = 0;
+    var deliveryCost ;
+    //size costing
+    if (inputtedSize ==="small"){
+      sizeCost = 500;
+    } else if(inputtedSize ==="medium"){
+      sizeCost = 750;
+    }else{
+       sizeCost = 1000;
+    };
+    //crust costing
+    if (inputtedCrust ==="0"){
+       crustCost = 0;
+    } else if(inputtedCrust === "1"){
+      crustCost = 100;
+    }else if (inputtedCrust === "2"){
+      crustCost = 200;
+    }else {
+      crustCost = 150;
+    };
+    //toppings costings
     if (bacon === true){
       if (inputtedSize === "small"){
          toppingCost += 50;
@@ -113,7 +114,6 @@ $(document).ready(function(){
          toppingCost += 120;
       };
     };
-
     if (onions === true){
       if (inputtedSize === "small"){
          toppingCost += 30;
@@ -124,11 +124,19 @@ $(document).ready(function(){
       };
     };
 
-    var total =  sizeCost + crustCost + toppingCost;
-    alert(sizeCost);
-    alert(crustCost);
-    alert(toppingCost);
-    alert(total);
+    //delivery costing
+    if (inputtedDelivery ==="1"){
+       deliveryCost = 0;
+    } else {
+      deliveryCost = 200;
+    };
+
+    var total =  sizeCost + crustCost + toppingCost + deliveryCost;
+    var new0rder = new Order(inputtedName,total);
+    $("#show-order"). show();
+    $(".userName").text("Hey " + inputtedName + "! Your order is:");
+    $(".pizza-type").text(inputtedSize + ", " + inputtedFlavor+"with " + inputtedCrust);
+    $(".pizza-total").text("Your total is " + "KSH"+ total);
   });
 });
 

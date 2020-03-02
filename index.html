@@ -108,18 +108,23 @@
             <label class="form-check-label" for="onions">Onions</label>
           </div>
         </div>
-
-          <br>
+        <br>
           <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
+          <br><br>
+          <p>Select delivery option</p>
+          <select class="form-control" id="delivery">
+            <option value="1">Pick-up</option>
+            <option value="2">Delivery</option>
+          </select>
+          <br>
           <button type="submit" class="btn btn-outline-success">Proceed to Checkout</button>
+
           <br><br>
           <div id="show-order">
-            <h2></h2>
-            <p>Pizza size: <span class="pizza-size"></span></p>
-            <p>Pizza crust: <span class="pizza-crust"></span></p>
-            <p>Total cost :<span class="pizza-total"></span></p>
+            <h2 class="userName"></h2>
+            <p class= "pizza-type"></p>
+            <p class= "pizza-total"></p>
           </div>
-
 
       </form>
     </div>
