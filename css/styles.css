@@ -1,18 +1,31 @@
 #show-order{
   display: none;
 }
+#checkout{
+  display: none;
+}
+#show-location{
+  display: none;
+}
 body{
   text-align: center;
   background-color: #FFA500;
-}
 
-#header h1{
-  font-family: 'Permanent Marker';
-  font-size: 80px;
 }
-#header p{
-  font-size:25px;
+#header {
   font-family: 'Permanent Marker';
+  background: url(../img/header.jpeg);
+  background-size: contain;
+  color: #FFA500;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+#header h1{
+  font-size: 80px;
+  color:white;
+}
+#header p {
+  font-size:25px;
 }
 
 #order{

@@ -1,12 +1,11 @@
-function Order(name,type,total){
+function Order(name,total){
   this.name = name;
   //this.type = [];
   this.total = total;
-}
+};
 
 function PizzaType(pizzaFlavor, size, crust){
   this.size = size;
-
   this.pizzaFlavor = pizzaFlavour;
   this.crust = crust;
   this.toppings = toppings;
@@ -46,10 +45,12 @@ $(document).ready(function(){
     event.preventDefault();
 
     var inputtedName = $("input#name").val();
+    var inputtedLocation = $("input#location").val()
     var inputtedSize = $("input[name=size]:checked").val();
     var inputtedFlavor =$("input[name=pizza]:checked").val();
     var inputtedCrust =$("#crust").val();
-    var inputtedDelivery= $("#delivery").val();
+    var inputtedDelivery= $("input[name=delivery]:checked").val();
+
     if (document.getElementById("bacon").checked){
       var bacon = true;
     }
@@ -76,11 +77,11 @@ $(document).ready(function(){
        sizeCost = 1000;
     };
     //crust costing
-    if (inputtedCrust ==="0"){
+    if (inputtedCrust ==="thin"){
        crustCost = 0;
-    } else if(inputtedCrust === "1"){
+    } else if(inputtedCrust === "thick"){
       crustCost = 100;
-    }else if (inputtedCrust === "2"){
+    }else if (inputtedCrust === "gluten-free"){
       crustCost = 200;
     }else {
       crustCost = 150;
@@ -125,76 +126,38 @@ $(document).ready(function(){
     };
 
     //delivery costing
-    if (inputtedDelivery ==="1"){
+    if (inputtedDelivery ==="pick-up"){
        deliveryCost = 0;
     } else {
-      deliveryCost = 200;
+        deliveryCost = 200;
     };
 
-    var total =  sizeCost + crustCost + toppingCost + deliveryCost;
-    var new0rder = new Order(inputtedName,total);
+    var total1 =  sizeCost + crustCost + toppingCost;
+    var total = total1 + deliveryCost;
+
+    //var  newOrder = new Order(inputtedName,total1);
+    //alert(newOrder.inputtedName);
+    //$("input#name").val(" ");
+    //total = total1 + deliveryCost;
     $("#show-order"). show();
     $(".userName").text("Hey " + inputtedName + "! Your order is:");
-    $(".pizza-type").text(inputtedSize + ", " + inputtedFlavor+"with " + inputtedCrust);
-    $(".pizza-total").text("Your total is " + "KSH"+ total);
+    $(".pizza-type").text(inputtedSize + ", " + inputtedFlavor+" pizza with " + inputtedCrust +" crust");
+    $(".pizza-total1").text("Your total is " + "KSH"+ total1);
+
+    $("#checkoutbtn").click(function(){
+      $("#checkout"). show();
+      $(".total").text("Your total is KSH" +total);
+      alert(inputtedLocation);
+
+      if (inputtedDelivery === "delivery"){
+
+        $("#show-location").show();
+        $(".delivery-location").text("This is to be delivered at " +inputtedLocation);
+      }
+    });
+    });
+
+
+
+
   });
-});
-
-
-
-
-    /*if (bacon === true) {
-      switch(inputtedSize){
-        case "small":
-          var baconCost = 30;
-        break;
-        case "medium":
-          var baconCost = 40;
-        break;
-        case "large":
-          var baconCost = 50;
-        break;
-      };
-    };
-
-    if (peporoni === true){
-      switch(inputtedSize){
-        case "small":
-          var peporoniCost = 80;
-        break;
-        case "medium":
-          var peporoniCost = 130;
-        break;
-        case "large":
-          var peporoniCost = 180;
-        break;
-      };
-    };
-
-    if (cheese === true){
-      switch(inputtedSize){
-        case "small":
-          var cheeseCost = 60;
-        break;
-        case "medium":
-          var cheeseCost = 90;
-        break;
-        case "large":
-          var cheeseCost = 120;
-        break;
-      };
-    };
-
-    if (onions === true){
-      switch(inputtedSize){
-        case "small":
-          var onionCost = 30;
-        break;
-        case "medium":
-          var onionCost = 40;
-        break;
-        case "large":
-          var onionCost = 50;
-        break;
-      };
-    };*/

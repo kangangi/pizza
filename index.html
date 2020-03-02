@@ -9,11 +9,11 @@
     <title>Eatalian Pizza</title>
   </head>
   <body>
-    <div class="container">
-      <div id="header">
+    <div id="header">
       <h1>EATALIAN PIZZA</h1>
       <p>Tasty and hot pizza just for you</p>
     </div>
+    <div class="container">
       <form id="order">
         <p>Make your order</p>
         <div class="form-group">
@@ -41,7 +41,7 @@
           <br><br>
 
           <p>Select type of pizza</p>
-          <div class="form-check">
+            <div class="form-check">
             <input class="form-check-input" type="radio" name="pizza" id="margherita" value="margherita" >
             <label class="form-check-label" for="margherita">Margherita</label>
           </div>
@@ -84,10 +84,10 @@
           <br>
           <p>Select type of crust</p>
           <select class="form-control" id="crust">
-            <option value="0">Thin Crust</option>
-            <option value="1">Thick Crust</option>
-            <option value="2">Glutten Free</option>
-            <option value="3">Cheese Stuffing</option>
+            <option value="thin">Thin Crust</option>
+            <option value="thick">Thick Crust</option>
+            <option value="gluten-free ">Glutten Free</option>
+            <option value="cheese-stuffing">Cheese Stuffing</option>
           </select>
           <br>
           <p>Select your choice of extra toppings</p>
@@ -110,23 +110,36 @@
         </div>
         <br>
           <span class="btn btn-outline-info" id="add-another-pizza">Add another Pizza</span>
-          <br><br>
-          <p>Select delivery option</p>
-          <select class="form-control" id="delivery">
-            <option value="1">Pick-up</option>
-            <option value="2">Delivery</option>
-          </select>
-          <br>
-          <button type="submit" class="btn btn-outline-success">Proceed to Checkout</button>
+          <button type="submit" id="proceed-to-checkout" class="btn btn-outline-success">Proceed to Checkout</button>
 
           <br><br>
           <div id="show-order">
             <h2 class="userName"></h2>
             <p class= "pizza-type"></p>
-            <p class= "pizza-total"></p>
-          </div>
+            <p class= "pizza-total1"></p>
 
-      </form>
-    </div>
+            <p>Select delivery option</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="delivery" id="pick-up" value="pick-up" >
+              <label class="form-check-label" for="pick-up">Pick-Up</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="delivery" id="delivery" value="delivery" >
+              <label class="form-check-label" for="delivery">Delivery</label>
+            </div>
+            <div class="form-group">
+              <label for="name">For delivery, enter your location:</label>
+              <input type="text" class="form-control" id="location">
+            </div>
+            <button type="submit" id="checkoutbtn" class="btn btn-outline-success">Confirm Order</button>
+          </div>
+          <div id="checkout">
+            <p class= "total"></p>
+            <div id="show-location"><p class="delivery-location"></p></div>
+          </div>
+        </form>
+      </div>
+      <footer  class="footer">
+      </footer>
   </body>
 </html>
