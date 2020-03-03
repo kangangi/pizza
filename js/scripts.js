@@ -1,16 +1,15 @@
-function Order(name,total){
-  this.name = name;
-  //this.type = [];
-  this.total = total;
-};
-
-function PizzaType(pizzaFlavor, size, crust){
+function Pizza(pizzaFlavor, size, crust,toppings){
   this.size = size;
-  this.pizzaFlavor = pizzaFlavour;
+  this.pizzaFlavor = pizzaFlavor;
   this.crust = crust;
   this.toppings = toppings;
-  this.delivery = delivery;
 }
+
+var pizzas =[]
+var sizeCost;
+var crustCost;
+var toppingCost=0;
+var deliveryCost ;
 
 $(document).ready(function(){
   $("#add-another-pizza").click(function(){
@@ -43,121 +42,180 @@ $(document).ready(function(){
       });
   $("form#order").submit(function(event){
     event.preventDefault();
-
     var inputtedName = $("input#name").val();
-    var inputtedLocation = $("input#location").val()
-    var inputtedSize = $("input[name=size]:checked").val();
-    var inputtedFlavor =$("input[name=pizza]:checked").val();
-    var inputtedCrust =$("#crust").val();
+    var inputtedLocation = $("input#location").val();
     var inputtedDelivery= $("input[name=delivery]:checked").val();
 
-    if (document.getElementById("bacon").checked){
-      var bacon = true;
-    }
-     if (document.getElementById("peporoni").checked){
-      var peporoni = true;
-    }
-    if (document.getElementById("cheese").checked){
-      var cheese = true;
-    }
-    if (document.getElementById("onions").checked){
-      var onions = true;
-    }
-    //costing
-    var sizeCost;
-    var crustCost;
-    var toppingCost = 0;
-    var deliveryCost ;
-    //size costing
-    if (inputtedSize ==="small"){
-      sizeCost = 500;
-    } else if(inputtedSize ==="medium"){
-      sizeCost = 750;
-    }else{
-       sizeCost = 1000;
-    };
-    //crust costing
-    if (inputtedCrust ==="thin"){
-       crustCost = 0;
-    } else if(inputtedCrust === "thick"){
-      crustCost = 100;
-    }else if (inputtedCrust === "gluten-free"){
-      crustCost = 200;
-    }else {
-      crustCost = 150;
-    };
-    //toppings costings
-    if (bacon === true){
-      if (inputtedSize === "small"){
-         toppingCost += 50;
-      }else if (inputtedSize === "medium"){
-         toppingCost += 100;
-      }else {
-         toppingCost += 150;
+
+    $("#new-order").each(function(){
+      var inputtedSize = $("input[name=size]:checked").val();
+      var inputtedFlavor =$("input[name=pizza]:checked").val();
+      var inputtedCrust =$("#crust").val();
+      var toppings = [];
+        $.each($('input[name="toppings"]:checked'),
+          function () {
+            toppings.push($(this).val());
+        });
+      var newPizza = new Pizza(inputtedFlavor,inputtedSize,inputtedCrust,toppings);
+      pizzas.push(newPizza);
+
+      Pizza.prototype.toppingCosting = function(toppings){
+      for (var i = 0; i < toppings.length; i++){
+        if (toppings[i] === "bacon" && inputtedSize ==="small"){
+          toppingCost += 50;
+        }
+        if (toppings[i] === "bacon" && inputtedSize ==="medium"){
+          toppingCost += 100;
+        }
+        if (toppings[i] === "bacon" && inputtedSize ==="large"){
+          toppingCost += 150;
+        }
+        if (toppings[i] === "peporoni" && inputtedSize ==="small"){
+          toppingCost += 80;
+        }
+        if (toppings[i]=== "peporoni" && inputtedSize ==="medium"){
+          toppingCost += 160;
+        }
+        if (toppings[i]=== "peporoni" && inputtedSize ==="large"){
+          toppingCost += 240;
+        }
+
+        if (toppings[i]=== "cheese" && inputtedSize ==="small"){
+          toppingCost += 40;
+        }
+        if (toppings[i]=== "cheese" && inputtedSize ==="medium"){
+          toppingCost += 80;
+        }
+        if (toppings[i] === "cheese" && inputtedSize ==="large"){
+          toppingCost += 120;
+        }
+        if (toppings[i] === "onions" && inputtedSize ==="small"){
+          toppingCost += 30;
+        }
+        if (toppings[i] === "onions" && inputtedSize ==="medium"){
+          toppingCost += 60;
+        }
+        if (toppings[i] === "onions"&& inputtedSize ==="large"){
+          toppingCost += 90;
+        }
       };
+      return toppingCost;
     };
-    if (peporoni === true){
-      if (inputtedSize === "small"){
-         toppingCost += 60;
-      }else if (inputtedSize === "medium"){
-         toppingCost += 120;
-      }else {
-         toppingCost += 180;
+
+
+
+      Pizza.prototype.sizeCosting = function(inputtedSize){
+        if (inputtedSize ==="small"){
+          sizeCost += 500;
+        } else if(inputtedSize ==="medium"){
+          sizeCost += 750;
+        }else{
+          sizeCost += 1000;
+        }
+      return sizeCost;
+    }
+
+
+      //crust costing
+      Pizza.prototype.crustCosting = function(inputtedCrust){
+        if (inputtedCrust ==="thin"){
+         crustCost += 0;
+        } else if(inputtedCrust === "thick"){
+         crustCost += 100;
+        }else if (inputtedCrust === "gluten-free"){
+         crustCost += 200;
+        }else {
+         crustCost += 150;
+        };
+        return crustCost;
       };
-    };
 
-    if (cheese === true){
-      if (inputtedSize === "small"){
-        toppingCost+= 40;
-      }else if (inputtedSize === "medium"){
-        toppingCost += 80;
-      }else {
-         toppingCost += 120;
-      };
-    };
-    if (onions === true){
-      if (inputtedSize === "small"){
-         toppingCost += 30;
-      }else if (inputtedSize === "medium"){
-         toppingCost += 60;
-      }else {
-        toppingCost += 90;
-      };
-    };
 
-    //delivery costing
-    if (inputtedDelivery ==="pick-up"){
-       deliveryCost = 0;
-    } else {
-        deliveryCost = 200;
-    };
-
-    var total1 =  sizeCost + crustCost + toppingCost;
-    var total = total1 + deliveryCost;
-
-    //var  newOrder = new Order(inputtedName,total1);
-    //alert(newOrder.inputtedName);
-    //$("input#name").val(" ");
-    //total = total1 + deliveryCost;
-    $("#show-order"). show();
-    $(".userName").text("Hey " + inputtedName + "! Your order is:");
-    $(".pizza-type").text(inputtedSize + ", " + inputtedFlavor+" pizza with " + inputtedCrust +" crust");
-    $(".pizza-total1").text("Your total is " + "KSH"+ total1);
-
-    $("#checkoutbtn").click(function(){
-      $("#checkout"). show();
-      $(".total").text("Your total is KSH" +total);
-      alert(inputtedLocation);
-
+      //delivery costing
       if (inputtedDelivery === "delivery"){
+         deliveryCost = 200;
+      } else {
+          deliveryCost =0;
+      };
 
-        $("#show-location").show();
-        $(".delivery-location").text("This is to be delivered at " +inputtedLocation);
-      }
+
+      let piz = pizzas[0];
+      piz.sizeCosting();
+      piz.crustCosting();
+      piz.toppingCosting();
+      var total1 =  sizeCost + crustCost + toppingCost;
+      var total = total1 + deliveryCost;
+
+      $("#show-order"). show();
+      $(".userName").text("Hey " + inputtedName + "! Your order is:");
+      $(".pizza-type").text(piz.inputtedSize + ", " + piz.inputtedFlavor+" pizza with " + piz.inputtedCrust +" crust");
+      $(".pizza-total1").text("Your total is " + "KSH"+ total1);
+
+      $("#checkout-btn").click(function(){
+        $("#checkout"). show();
+        $(".total").text("Your total is KSH" +total);
+        if (inputtedDelivery === "delivery"){
+          $("#show-location").show();
+          $(".delivery-location").text("This is to be delivered at " +inputtedLocation);
+        };
+      });
+      });
+
     });
-    });
-
-
-
 
   });
+
+
+        /*if (document.getElementById("bacon").checked){
+          var bacon = true;
+        }
+         if (document.getElementById("peporoni").checked){
+          var peporoni = true;
+        }
+        if (document.getElementById("cheese").checked){
+          var cheese = true;
+        }
+        if (document.getElementById("onions").checked){
+          var onions = true;
+        };*/
+        //toppings costings
+        /*Pizza.prototype.toppingCosting = function(bacon,peporoni,cheese,onions){
+          /*if (bacon === true){
+            if (inputtedSize === "small"){
+             toppingCost += 50;
+            }else if (inputtedSize === "medium"){
+             toppingCost += 100;
+            }else {
+             toppingCost += 150;
+            };
+          };
+          if (peporoni === true){
+            if (inputtedSize === "small"){
+             toppingCost += 60;
+            }else if (inputtedSize === "medium"){
+             toppingCost += 120;
+            }else {
+             toppingCost += 180;
+            };
+          };
+
+          if (cheese === true){
+            if (inputtedSize === "small"){
+              toppingCost+= 40;
+            }else if (inputtedSize === "medium"){
+              toppingCost += 80;
+            }else {
+              toppingCost += 120;
+            };
+          };
+          if (onions === true){
+            if (inputtedSize === "small"){
+             toppingCost += 30;
+            }else if (inputtedSize === "medium"){
+             toppingCost += 60;
+            }else {
+             toppingCost += 90;
+            };
+          };
+          return toppingCost;
+        };*/
