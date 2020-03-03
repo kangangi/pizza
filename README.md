@@ -2,10 +2,14 @@
 #### A pizza restaurant website, 1-03-2020
 #### By **Diana Kangangi**
 ## Description
-{This is a detailed description of your application, including its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }
+The application has the following features: 
+* The user can enter their name.  
+* The user can select the size of pizza, type of crust, type of pizza,extra toppings, delivery option and their location.
+* The application calculates the total price and displays the order and location. 
 ## Setup/Installation Requirements
-* Run the link on the repository
+* Run the link on the repository.
 ## Known Bugs
+The user cannot make multiple orders.
 ## Technologies Used
 HTML,CSS,JavaScript,Git GitHub
 ## Support and contact details
