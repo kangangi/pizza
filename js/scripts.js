@@ -4,10 +4,7 @@ function Pizza(pizzaFlavor, size, crust,toppings){
   this.crust = crust;
   this.toppings = toppings;
 }
-var sizeCost;
-var crustCost;
-var toppingCost=0;
-var deliveryCost ;
+
 
 $(document).ready(function(){
   $("form#order").submit(function(event){
@@ -19,80 +16,87 @@ $(document).ready(function(){
     var inputtedFlavor =$("input[name=pizza]:checked").val();
     var inputtedCrust =$("#crust").val();
     var toppings = [];
-        $.each($('input[name="toppings"]:checked'),
-          function () {
-            toppings.push($(this).val());
-        });
+    $.each($('input[name="toppings"]:checked'),
+      function () {
+        toppings.push($(this).val());
+      }
+    );
+    var sizeCost = 0;
+    var crustCost = 0;
+    var toppingCost=0;
+    var deliveryCost = 0 ;
+    //size costing
+    if (inputtedSize ==="small"){
+      sizeCost += 500;
+    } else if(inputtedSize ==="medium"){
+      sizeCost += 750;
+    }else{
+     sizeCost += 1000;
+   };
+
+   //crust costing
+    if (inputtedCrust ==="thin"){
+      crustCost += 0;
+    } else if(inputtedCrust === "thick"){
+     crustCost += 100;
+    } else if (inputtedCrust === "gluten-free"){
+     crustCost += 200;
+    }else {
+      crustCost += 150;
+    };
+
+    //topping costing
     if (document.getElementById("bacon").checked){
       var bacon = true;
-      }
+    }
     if (document.getElementById("peporoni").checked){
       var peporoni = true;
-      }
+    }
     if (document.getElementById("cheese").checked){
       var cheese = true;
-      }
+    }
     if (document.getElementById("onions").checked){
       var onions = true;
     };
 
+    if (bacon === true){
+      if (inputtedSize === "small"){
+        toppingCost += 50;
+      }else if (inputtedSize === "medium"){
+        toppingCost += 100;
+      }else {
+       toppingCost += 150;
+      };
+    };
+    if (peporoni === true){
+      if (inputtedSize === "small"){
+        toppingCost += 60;
+      }else if (inputtedSize === "medium"){
+        toppingCost += 120;
+      }else {
+        toppingCost += 180;
+      };
+    };
 
-        if (inputtedSize ==="small"){
-          sizeCost += 500;
-        } else if(inputtedSize ==="medium"){
-          sizeCost += 750;
-        }else{
-          sizeCost += 1000;
-        }
-
-        if (inputtedCrust ==="thin"){
-         crustCost += 0;
-        } else if(inputtedCrust === "thick"){
-         crustCost += 100;
-        }else if (inputtedCrust === "gluten-free"){
-         crustCost += 200;
-        }else {
-         crustCost += 150;
-        };
-
-        if (bacon === true){
-          if (inputtedSize === "small"){
-           toppingCost += 50;
-          }else if (inputtedSize === "medium"){
-           toppingCost += 100;
-          }else {
-           toppingCost += 150;
-          };
-        };
-        if (peporoni === true){
-          if (inputtedSize === "small"){
-           toppingCost += 60;
-          }else if (inputtedSize === "medium"){
-           toppingCost += 120;
-          }else {
-           toppingCost += 180;
-          };
-        };
-
-        if (cheese === true){
-          if (inputtedSize === "small"){
-            toppingCost+= 40;
-          }else if (inputtedSize === "medium"){
-            toppingCost += 80;
-          }else {
-            toppingCost += 120;
-          };
-        };
-        if (onions === true){
-          if (inputtedSize === "small"){
-           toppingCost += 30;
-          }else if (inputtedSize === "medium"){
-           toppingCost += 60;
-          }else {
-           toppingCost += 90;
-          };
-        };
-
+    if (cheese === true){
+      if (inputtedSize === "small"){
+        toppingCost+= 40;
+      }else if (inputtedSize === "medium"){
+        toppingCost += 80;
+      }else {
+        toppingCost += 120;
+      };
+    };
+    if (onions === true){
+      if (inputtedSize === "small"){
+        toppingCost += 30;
+      }else if (inputtedSize === "medium"){
+        toppingCost += 60;
+      }else {
+       toppingCost += 90;
+      };
+    };
+    //delivery costing
       if (inputtedDelivery === "delivery"){
          deliveryCost = 200;
       } else {
@@ -109,11 +113,14 @@ $(document).ready(function(){
 
       $("#checkout-btn").click(function(){
         $("#checkout"). show();
-        $(".total").text("Your total is KSH" +total);
+
         if (inputtedDelivery === "delivery"){
+          $(".total").text("Your total is KSH" +total);
           $("#show-location").show();
           $(".delivery-location").text("This is to be delivered at " +inputtedLocation);
-        };
+        }else{
+         $(".total").text("Your total is KSH" +total);
+        }
       });
       });
 
