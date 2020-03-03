@@ -3,25 +3,29 @@
   <head>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Dosis|Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/scripts.js"></script>
     <title>Eatalian Pizza</title>
   </head>
   <body>
+    <div class="container">
     <div id="header">
       <h1>EATALIAN PIZZA</h1>
       <p>Tasty and hot pizza just for you</p>
     </div>
-    <div class="container">
+        <p div id="make-order">Make your order</p>
       <form id="order">
-        <p>Make your order</p>
         <div class="form-group">
-          <label for="name">Enter your name:</label>
+          <div class="row">
+            <div class="col-md-4">
+          <label for="name">Enter your name:</label></div>
+            <div class="col-md-8">
           <input type="text" class="form-control" id="name">
-        </div>
+        </div></div></div>
         <div id="new-order">
-        <p>Select a size:</p>
+        <p>Select a size</p>
         <div class="row">
           <div class="col-md-4">
             <div class="form-check">
@@ -41,6 +45,8 @@
           <br><br>
 
           <p>Select type of pizza</p>
+            <div class="row">
+              <div class= "col-md-6">
             <div class="form-check">
             <input class="form-check-input" type="radio" name="pizza" id="margherita" value="margherita" >
             <label class="form-check-label" for="margherita">Margherita</label>
@@ -60,7 +66,8 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="pizza" id="hawaiian" value="hawaiian"  >
             <label class="form-check-label" for="hawaiian">Hawaiian</label>
-          </div>
+          </div></div>
+          <div class= "col-md-6">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="pizza" id="sweet-chilli-chicken" value="sweet-chilli-chicken"  >
             <label class="form-check-label" for="sweet-chilli-chicken">Sweet Chilli Chicken</label>
@@ -80,15 +87,25 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="pizza" id="pork-rib" value="pork-rib" >
             <label class="form-check-label" for="pork-rib">Pork Rib</label>
-          </div>
+          </div></div></div>
           <br>
           <p>Select type of crust</p>
-          <select class="form-control" id="crust">
-            <option value="thin">Thin Crust</option>
-            <option value="thick">Thick Crust</option>
-            <option value="gluten-free ">Glutten Free</option>
-            <option value="cheese-stuffing">Cheese Stuffing</option>
-          </select>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="crust" id="thin" value="thin"  >
+            <label class="form-check-label" for="thin">Thin-crust</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="crust" id="thick" value="thick" >
+            <label class="form-check-label" for="thick">Thick-Crust</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="crust" id="glutten" value="glutten" >
+            <label class="form-check-label" for="glutten">Glutten-Free</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="crust" id="cheese" value="cheese" >
+            <label class="form-check-label" for="cheese">Cheese-Stuffing</label>
+          </div>
           <br>
           <p>Select your choice of extra toppings</p>
           <div class="form-check">
@@ -132,11 +149,11 @@
               <input type="text" class="form-control" id="location">
             </div>
             <button type="submit" id="checkout-btn" class="btn btn-outline-success">Confirm Order</button>
-          </div>
+
           <div id="checkout">
             <p class= "total"></p>
             <div id="show-location"><p class="delivery-location"></p></div>
-          </div>
+          </div></div>
         </form>
       </div>
       <footer  class="footer">

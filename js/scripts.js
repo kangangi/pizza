@@ -14,7 +14,7 @@ $(document).ready(function(){
     var inputtedDelivery= $("input[name=delivery]:checked").val();
     var inputtedSize = $("input[name=size]:checked").val();
     var inputtedFlavor =$("input[name=pizza]:checked").val();
-    var inputtedCrust =$("#crust").val();
+    var inputtedCrust =$("input[name=crust]:checked").val();
     var toppings = [];
     $.each($('input[name="toppings"]:checked'),
       function () {
@@ -30,8 +30,10 @@ $(document).ready(function(){
       sizeCost += 500;
     } else if(inputtedSize ==="medium"){
       sizeCost += 750;
-    }else{
+    }else if(inputtedSize ==="large"){
      sizeCost += 1000;
+   }else {
+     sizeCost += 0;
    };
 
    //crust costing
@@ -41,8 +43,10 @@ $(document).ready(function(){
      crustCost += 100;
     } else if (inputtedCrust === "gluten-free"){
      crustCost += 200;
-    }else {
+   }else if (inputtedCrust === "cheese"){
       crustCost += 150;
+    }else{
+      crustCost = 0;
     };
 
     //topping costing
@@ -113,24 +117,14 @@ $(document).ready(function(){
 
       $("#checkout-btn").click(function(){
         $("#checkout"). show();
-
         if (inputtedDelivery === "delivery"){
-          $(".total").text("Your total is KSH" +total);
-          $("#show-location").show();
+        $(".total").text("Your total is KSH" +total);
+        $("#show-location").show();
           $(".delivery-location").text("This is to be delivered at " +inputtedLocation);
         }else{
-         $(".total").text("Your total is KSH" +total);
+         $(".total").text("Your total is KSH" +total1);
         }
       });
       });
 
     });
-
-
-
-
-        //toppings costings
-        /*Pizza.prototype.toppingCosting = function(bacon,peporoni,cheese,onions){
-          /*
-          return toppingCost;
-        };*/

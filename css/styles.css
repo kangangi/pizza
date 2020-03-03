@@ -1,5 +1,6 @@
 #show-order{
   display: none;
+
 }
 #checkout{
   display: none;
@@ -9,33 +10,49 @@
 }
 body{
   text-align: center;
-  background-color: #FFA500;
+  background: url(../img/header.jpg);
+  background-size: cover;
+  background-position: right;
+  color: white;
 
 }
 #header {
-  font-family: 'Permanent Marker';
-  background: url(../img/header.jpeg);
-  background-size: contain;
+  font-family: 'Lacquer';
   color: #FFA500;
-  padding-top: 150px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
 }
 #header h1{
-  font-size: 80px;
-  color:white;
+  font-size: 100px;
+  color:gray;
 }
 #header p {
   font-size:25px;
 }
 
+#make-order{
+  color: #FFA500;
+  font-family: 'Lacquer';
+  font-size: 40px;
+}
+
 #order{
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Dosis';
 }
 #order p{
-  font-weight: bold;
-  color: gray;
+  font-family: 'Lacquer';
+  color: #FFA500;
+  font-size: 40px;
 }
 .btn{
-  font-size: 30px;
+  font-size: 25px;
+  color:white;
+}
+
+#show-order p{
+  background-color: transparent;
+  font-size: 25px;
+
 }
