@@ -8,6 +8,7 @@ The application has the following features:
 * The application calculates the total price and displays the order and location. 
 ## Setup/Installation Requirements
 * Run the link on the repository.
+* Press confirm button twice to show location
 ## Known Bugs
 The user cannot make multiple orders.
 ## Technologies Used
